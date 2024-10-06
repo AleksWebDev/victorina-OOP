@@ -1,4 +1,4 @@
-class Question{
+/* class Question{
     constructor(quest){
         this.quest = quest;
     }
@@ -40,39 +40,52 @@ let arrayQuest = [
 ]
 
 window.addEventListener('DOMContentLoaded', function(){
-    let num = getRandomQuestion(0, arrayQuest.length - 1);
-    askQuestion(arrayQuest[num], arrayQuest, num);
+    initGame()
 })
+
+function initGame(){
+    let num = getRandomQuestion(0, arrayQuest.length - 1);
+    askQuestion(arrayQuest[num]);
+}
 
 function getRandomQuestion(min, max){
     return Math.floor(Math.random() * (max - min + 1))  + min;
 }
 
-function askQuestion(quest, arrayQuest, num){
+function askQuestion(quest){
     let data = quest.quest;
     let answer;
+    let score = 0;
+    let res;
     switch (data.num){
         case 1:{
+            console.log(data.question)
             question(data.answers);
             answer = prompt(data.question)
             console.log(answer)
-            checkAnswer(data.rightAnswer, Number(answer))
+            res = checkAnswer(data.rightAnswer, Number(answer), score)
+            console.log(`Score: ${res}`)
+            initGame()
             break;
         };
         case 2:{
+            console.log(data.question)
             question(data.answers);
             answer = prompt(data.question)
             console.log(answer)
-            console.log(data.rightAnswer)
-            checkAnswer(data.rightAnswer, Number(answer))
+            res = checkAnswer(data.rightAnswer, Number(answer), score)
+            console.log(`Score: ${res}`)
+            initGame()
             break;
         };
         case 3:{
+            console.log(data.question)
             question(data.answers);
             answer = prompt(data.question)
             console.log(answer)
-            console.log(data.rightAnswer)
-            checkAnswer(data.rightAnswer, Number(answer))
+            res = checkAnswer(data.rightAnswer, Number(answer), score)
+            console.log(`Score: ${res}`)
+            initGame()
             break;
         };
     }
@@ -84,13 +97,15 @@ function askQuestion(quest, arrayQuest, num){
         }
     }
 
-    function checkAnswer(answer, correctAnswer){
+    function checkAnswer(answer, correctAnswer, score){
         if(answer === correctAnswer){
-            console.log('Congratulation, you gave the correct answer!!!')
+            console.log(`Wictory, you gave the correct answer!!!`)
+            score++
+            return score;
         }else{
             console.log('Inccorect, Try again!!!')
         }
     }
     
-}
+} */
 
